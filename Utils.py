@@ -16,11 +16,11 @@ def newton_raphson(value_, fn_, fprime_=None):
         return None
 
 
-def is_valid_number_to_operate(num):
-    if num is not None:
-        if math.isinf(num):
+def is_valid_number_to_operate(num_):
+    if num_ is not None:
+        if math.isinf(num_):
             return False
-        elif math.isnan(num):
+        elif math.isnan(num_):
             return False
     else:
         return False

@@ -7,8 +7,8 @@ class ZeroFinder:
     __initial_value = 1
     __fn = None
 
-    def __init__(self, fn=None):
-        if fn is not None: self.fn = fn
+    def __init__(self, fn_=None):
+        if fn_ is not None: self.fn = fn_
 
     @property
     def initial_value(self):
@@ -23,32 +23,32 @@ class ZeroFinder:
         return self.__tolerance
 
     @tolerance.setter
-    def tolerance(self, tolerance):
-        self.__tolerance = tolerance
+    def tolerance(self, tolerance_):
+        self.__tolerance = tolerance_
 
     @property
     def max_i(self):
         return self.__max_i
 
     @max_i.setter
-    def max_i(self, max_i):
-        self.__max_i = max_i
+    def max_i(self, max_i_):
+        self.__max_i = max_i_
 
     @property
     def fn(self):
         return self.__fn
 
     @fn.setter
-    def fn(self, fn):
-        self.__fn = fn
+    def fn(self, fn_):
+        self.__fn = fn_
 
     def get_zero(self):
         i = 0
-        initial_value_ = self.initial_value
+        initial_value = self.initial_value
         fprime = appUtils.fprime(self.fn)
-        while initial_value_ is not None and abs(self.fn(initial_value_)) > self.tolerance and i <= self.max_i:
+        while initial_value is not None and abs(self.fn(initial_value)) > self.tolerance and i <= self.max_i:
             i += 1
-            initial_value_ = appUtils.newton_raphson(initial_value_, self.fn, fprime)
-            if not appUtils.is_valid_number_to_operate(initial_value_):
+            initial_value = appUtils.newton_raphson(initial_value, self.fn, fprime)
+            if not appUtils.is_valid_number_to_operate(initial_value):
                 break
-        return initial_value_
+        return initial_value
