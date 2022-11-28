@@ -5,6 +5,8 @@ from ZeroFinderByInterval import ZeroFinderByInterval
 
 class ZeroFinderBySecant(ZeroFinderByInterval):
 
+    max_i = 10
+
     def __init__(self, fn_):
         self.fn = fn_
         super().__init__(fn_)
